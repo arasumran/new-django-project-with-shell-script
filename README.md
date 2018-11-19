@@ -10,3 +10,5 @@ this is = "cd /home/umran/./ws/my_project/PYTHON/" my project location to create
 
 but you MUST give your project path
 
+
+please check for this same paths and change to your own path
