@@ -2,14 +2,25 @@
 
 echo "creating New Project"
 echo "............."
-echo "Current path : "; pwd
-echo
-#your project path name 
-cd /home/umran/./ws/my_project/PYTHON/
+echo "Current path : "
+pwd_result=$(pwd)
+echo $pwd_result
+echo "Do you want to define new spesific path (yes/no)"
+read choice
+if [[ $choice = "yes" ]]
+then
+	echo "Please ENTER your spesific path (etc. (home/yourUser/...)) :"
+	read pwd_result
+	cd $pwd_result
+else
+	cd $pwd_result
+fi
+
+#your project path name
 echo "**************************************************************************************"
 echo
 #virtualenvwrapper must be downloaded
-source /usr/local/bin/virtualenvwrapper.sh 
+source /usr/local/bin/virtualenvwrapper.sh
 boolean_data="yes"
 echo "Do you want to create new virtualenvironment(yes/no) :"
 echo ""
@@ -60,10 +71,10 @@ django-admin startproject $project_name .
 
 python manage.py makemigrations
 
-python manage.py migrate 
+python manage.py migrate
 
 
-cd /home/umran/./ws/my_project/PYTHON/$file_name
+cd $pwd_result/$file_name
 
 echo "Please Enter App Name :"
 
@@ -75,7 +86,7 @@ python manage.py startapp $app_name
 echo "dont forget add to settings INSTALLED_APPS :" $app_name ", rest_framework  and app urls.py "
 echo "add this also :"
 echo "urlpatterns = [
-    
+
     url(r'^api-auth/', include('rest_framework.urls'))
 
 
@@ -89,6 +100,3 @@ REST_FRAMEWORK = {
     ]
 }
 "
-
-
-
