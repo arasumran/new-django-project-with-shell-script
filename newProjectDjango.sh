@@ -3,6 +3,7 @@
 echo "creating New Project"
 echo "............."
 echo "Current path : "
+
 pwd_result=$(pwd)
 echo $pwd_result
 echo "Do you want to define new spesific path (yes/no)"
